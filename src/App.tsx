@@ -2,10 +2,10 @@ import React from 'react'
 import { View, Text, Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useTranslation } from 'react-i18next'
 import env from 'react-native-config'
-import { RootStackParamList, ScreenProps } from './navigation/types'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { RootStackParamList, ScreenProps } from 'navigation/types'
 import './i18n/config'
 
 const HomeScreen: ScreenProps<'HOME_PATH'> = ({ navigation }) => {

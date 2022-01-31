@@ -1,6 +1,6 @@
-import i18next, { LanguageDetectorAsyncModule } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { getLocales } from 'react-native-localize'
+import i18next, { LanguageDetectorAsyncModule } from 'i18next'
 import TRANSLATIONS_CS_CZ from './messages/cs-CZ.json'
 import TRANSLATIONS_EN_US from './messages/en-US.json'
 

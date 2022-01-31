@@ -1,23 +1,50 @@
 {
-    "extends": ["@react-native-community", "prettier"],
-    "plugins": ["react", "react-native", "prettier"],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2020,
-        "sourceType": "module"
+  "plugins": ["react", "react-native", "prettier", "import-helpers"],
+  "extends": ["@react-native-community", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "rules": {
-        "prettier/prettier": "error",
-        "react/prop-types": "off",
-        "no-unused-vars": "off",
-        "react/display-name": "off",
-        "@typescript-eslint/no-unused-vars": "warn"
-    },
-    "env": {
-        "es6": true,
-        "browser": true,
-        "node": true
-    }
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "ignore",
+        "groups": [
+          "/^react$/",
+          "/^react-native$/",
+          "/^@react-navigation/",
+          "/^react/",
+          "/formik/",
+          "/yup/",
+          "module",
+          "/^pages/",
+          "/^modules/",
+          "/^contexts/",
+          "/^helpers/",
+          "/^hooks/",
+          "/^services/",
+          "/^containers/",
+          "/^layouts/",
+          "/^generic/",
+          "/^icons/",
+          "/^assets/",
+          "/^types/",
+          ["parent", "sibling", "index"],
+          "/^./styles/"
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  }
 }

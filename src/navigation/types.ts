@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { StackNavigationProp } from '@react-navigation/stack'
 import { RouteProp } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 export type RootStackParamList = {
   HOME_PATH: undefined
