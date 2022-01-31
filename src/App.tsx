@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navigation from 'navigation/routes'
-import { useCurrentUser, UserManager } from 'contexts/CurrentUser'
+import { useCurrentUser } from 'contexts/CurrentUser'
 import { getUser } from 'helpers/user'
 
 const App = () => {
@@ -27,11 +27,7 @@ const App = () => {
     fetchData()
   }, [])
 
-  return (
-    <UserManager>
-      <Navigation loading={loading} authed={authed} />
-    </UserManager>
-  )
+  return <Navigation loading={loading} authed={authed} />
 }
 
 export default App
