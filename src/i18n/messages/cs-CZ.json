@@ -1,4 +1,4 @@
 {
-  "HOME_PATH": "Home screen",
-  "DETAIL_PATH": "Detail screen"
+  "HomeScreen": "Home screen",
+  "DetailScreen": "Detail screen"
 }

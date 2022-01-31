@@ -1,75 +1,36 @@
-import React from 'react'
-import { View, Text, Button } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { useTranslation } from 'react-i18next'
-import env from 'react-native-config'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { RootStackParamList, ScreenProps } from 'navigation/types'
-import './i18n/config'
-
-const HomeScreen: ScreenProps<'HOME_PATH'> = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('DETAIL_PATH', { DetailId: '1' })}
-      />
-    </View>
-  )
-}
-
-const DetailScreen: ScreenProps<'DETAIL_PATH'> = ({
-  navigation,
-  route: { params },
-}) => {
-  const { DetailId } = params
-
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>{`Detail ${DetailId} Screen`}</Text>
-    </View>
-  )
-}
-
-const Stack = createStackNavigator<RootStackParamList>()
+import React, { useState, useEffect } from 'react'
+import Navigation from 'navigation/routes'
+import { useCurrentUser, UserManager } from 'contexts/CurrentUser'
+import { getUser } from 'helpers/user'
 
 const App = () => {
-  const { t } = useTranslation()
+  const { setUserData, authed, setAuthed } = useCurrentUser()
+  const [loading, setLoading] = useState<boolean>(false)
 
-  console.log('env', env.PEPEGA)
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+
+      const user = await getUser()
+
+      if (user) {
+        setAuthed(Boolean(user))
+        setUserData({
+          Username: 'Pepega',
+          Email: 'pepega@gmail.com',
+        })
+      }
+
+      setLoading(false)
+    }
+
+    fetchData()
+  }, [])
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name={'HOME_PATH'}
-          options={{
-            title: t('HomeScreen'),
-            headerTitleAlign: 'center',
-          }}
-          component={HomeScreen}
-        />
-        <Stack.Screen
-          name={'DETAIL_PATH'}
-          options={({ navigation }) => ({
-            title: t('DetailScreen'),
-            headerTitleAlign: 'center',
-            headerLeft: () => (
-              <TouchableOpacity
-                style={{ padding: 10 }}
-                onPress={() => {
-                  navigation.goBack()
-                }}
-              >
-                <Text>{'<<<<<<'}</Text>
-              </TouchableOpacity>
-            ),
-          })}
-          component={DetailScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UserManager>
+      <Navigation loading={loading} authed={authed} />
+    </UserManager>
   )
 }
 

@@ -11,6 +11,7 @@
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": "warn",
+    "react-hooks/exhaustive-deps": "warn",
     "import-helpers/order-imports": [
       "warn",
       {
@@ -23,8 +24,8 @@
           "/formik/",
           "/yup/",
           "module",
-          "/^pages/",
-          "/^modules/",
+          "/^navigation/",
+          "/^screens/",
           "/^contexts/",
           "/^helpers/",
           "/^hooks/",
