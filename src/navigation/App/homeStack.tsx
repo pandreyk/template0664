@@ -3,30 +3,30 @@ import { Text } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { AuthStackParams } from 'navigation/types'
-import LoginScreen from 'screens/Login'
-import SetupAddressScreen from 'screens/SetupAddress'
+import { HomeStackParams } from 'navigation/types'
+import DetailScreen from 'screens/Detail'
+import HomeScreen from 'screens/Home'
 
-const Stack = createStackNavigator<AuthStackParams>()
+const Stack = createStackNavigator<HomeStackParams>()
 
-const AuthStack = () => {
+const HomeStack = () => {
   const { t } = useTranslation()
 
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={'SETUP_ADDRESS_PATH'}
-        component={SetupAddressScreen}
+        name={'HOME_PATH'}
+        component={HomeScreen}
         options={{
-          title: t('SetupAddressScreen'),
+          title: t('HomeScreen'),
           headerTitleAlign: 'center',
         }}
       />
       <Stack.Screen
-        name={'LOGIN_PATH'}
-        component={LoginScreen}
+        name={'DETAIL_PATH'}
+        component={DetailScreen}
         options={({ navigation }) => ({
-          title: t('LoginScreen'),
+          title: t('DetailScreen'),
           headerTitleAlign: 'center',
           headerLeft: () => (
             <TouchableOpacity
@@ -44,4 +44,4 @@ const AuthStack = () => {
   )
 }
 
-export default AuthStack
+export default HomeStack

@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Button } from 'react-native'
-import { AuthScreenProps } from 'navigation/types'
+import { AuthStackProps } from 'navigation/types'
 
-const SetupAddressScreen: AuthScreenProps<'SETUP_ADDRESS_PATH'> = ({
+const SetupAddressScreen: React.FC<AuthStackProps<'SETUP_ADDRESS_PATH'>> = ({
   navigation,
 }) => {
   return (

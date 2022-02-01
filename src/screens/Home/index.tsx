@@ -1,26 +1,21 @@
 import React from 'react'
 import { View, Button } from 'react-native'
-import { ScreenProps } from 'navigation/types'
-import { removeUser } from 'helpers/user'
+import { HomeProps } from 'navigation/types'
 
-const HomeScreen: ScreenProps<'HOME_PATH'> = ({ navigation }) => {
-  const logout = async () => {
-    await removeUser()
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'AUTH_NAVIGATOR' }],
-    })
-  }
+const HomeScreen: React.FC<HomeProps<'HOME_PATH'>> = ({ navigation }) => {
+  const goToDetails = (DetailId: string) =>
+    navigation.navigate('DETAIL_PATH', { DetailId })
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('DETAIL_PATH', { DetailId: '1' })}
-      />
-
-      <View style={{ marginTop: 10 }}>
-        <Button title="Logout" onPress={logout} />
+      <View style={{ margin: 10 }}>
+        <Button title="Go to Details 1" onPress={() => goToDetails('1')} />
+      </View>
+      <View style={{ margin: 10 }}>
+        <Button title="Go to Details 2" onPress={() => goToDetails('2')} />
+      </View>
+      <View style={{ margin: 10 }}>
+        <Button title="Go to Details 3" onPress={() => goToDetails('3')} />
       </View>
     </View>
   )

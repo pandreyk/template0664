@@ -2,7 +2,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import AppStack from 'navigation/App'
+import AppNav from 'navigation/App'
 import AuthStack from 'navigation/Auth'
 import { RootStackParams } from 'navigation/types'
 
@@ -14,7 +14,9 @@ interface Routes {
 }
 
 const Navigation = ({ loading, authed }: Routes) => {
-  const initialRouteName = authed ? 'APP_NAVIGATOR' : 'AUTH_NAVIGATOR'
+  const initialRouteName: keyof RootStackParams = authed
+    ? 'APP_NAVIGATOR'
+    : 'AUTH_NAVIGATOR'
 
   return loading ? (
     <Text>Loading...</Text>
@@ -22,7 +24,7 @@ const Navigation = ({ loading, authed }: Routes) => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={initialRouteName} headerMode="none">
         <Stack.Screen name={'AUTH_NAVIGATOR'} component={AuthStack} />
-        <Stack.Screen name={'APP_NAVIGATOR'} component={AppStack} />
+        <Stack.Screen name={'APP_NAVIGATOR'} component={AppNav} />
       </Stack.Navigator>
     </NavigationContainer>
   )

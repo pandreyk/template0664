@@ -1,5 +1,4 @@
-import { FC } from 'react'
-import { RouteProp } from '@react-navigation/native'
+import { NavigatorScreenParams, RouteProp } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 
 // Root Navigation
@@ -8,6 +7,8 @@ export type RootStackParams = {
   APP_NAVIGATOR: undefined
 }
 
+//-----------------------------------------------------------------------------
+
 // Auth Navigation
 export type AuthStackParams = RootStackParams & {
   SETUP_ADDRESS_PATH: undefined
@@ -15,30 +16,33 @@ export type AuthStackParams = RootStackParams & {
 }
 
 // App Navigation
-export type AppStackParams = RootStackParams & {
+export type BottomTabParams = RootStackParams & {
+  HOME_STACK: NavigatorScreenParams<AuthStackParams>
+  PROFILE_PATH: undefined
+}
+
+// App Navigation
+export type HomeStackParams = RootStackParams & {
   HOME_PATH: undefined
   DETAIL_PATH: { DetailId: string }
 }
 
+//-----------------------------------------------------------------------------
+
 // Auth Screen Props
-type AuthProps<T extends keyof AuthStackParams> = {
+export type AuthStackProps<T extends keyof AuthStackParams> = {
   navigation: StackNavigationProp<AuthStackParams, T>
   route: RouteProp<AuthStackParams, T>
 }
-export type AuthScreenProps<T extends keyof AuthStackParams> = FC<AuthProps<T>>
+
+// App Tab Screen Props
+export type TabProps<T extends keyof BottomTabParams> = {
+  navigation: StackNavigationProp<BottomTabParams, T>
+  route: RouteProp<BottomTabParams, T>
+}
 
 // App Screen Props
-type AppProps<T extends keyof AppStackParams> = {
-  navigation: StackNavigationProp<AppStackParams, T>
-  route: RouteProp<AppStackParams, T>
+export type HomeProps<T extends keyof HomeStackParams> = {
+  navigation: StackNavigationProp<HomeStackParams, T>
+  route: RouteProp<HomeStackParams, T>
 }
-export type ScreenProps<T extends keyof AppStackParams> = FC<AppProps<T>>
-
-// Universal Screen Props
-type uPaths = keyof AppStackParams | keyof AuthStackParams
-type uNavParams = AppStackParams & AuthStackParams
-type uProps<T extends uPaths> = {
-  navigation: StackNavigationProp<uNavParams, T>
-  route: RouteProp<uNavParams, T>
-}
-export type uScreenProps<T extends uPaths> = FC<uProps<T>>

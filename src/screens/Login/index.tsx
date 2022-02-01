@@ -1,9 +1,11 @@
 import React from 'react'
 import { View, Button } from 'react-native'
-import { AuthScreenProps } from 'navigation/types'
+import { AuthStackProps } from 'navigation/types'
 import { setUser } from 'helpers/user'
 
-const LoginScreen: AuthScreenProps<'LOGIN_PATH'> = ({ navigation }) => {
+const LoginScreen: React.FC<AuthStackProps<'LOGIN_PATH'>> = ({
+  navigation,
+}) => {
   const login = async () => {
     await setUser('some string')
     navigation.reset({
