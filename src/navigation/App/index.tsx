@@ -1,10 +1,11 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { useTranslation } from 'react-i18next'
+import { moderateVerticalScale } from 'react-native-size-matters'
 import HomeStack from 'navigation/App/homeStack'
 import { BottomTabParams } from 'navigation/types'
 import ProfileScreen from 'screens/Profile'
+import { Text } from 'generic/Text'
 
 const Tab = createBottomTabNavigator<BottomTabParams>()
 
@@ -22,9 +23,14 @@ const AppNav = () => {
             <Text style={{ color, fontSize: size }}>H</Text>
           ),
           tabBarLabel: ({ color }) => (
-            <Text style={{ color, fontSize: 14 }}>{t('Home')}</Text>
+            <Text
+              type={'ct'}
+              style={{ color, marginBottom: moderateVerticalScale(2) }}
+            >
+              {t('Home')}
+            </Text>
           ),
-          tabBarBadge: 1,
+          tabBarBadge: 3,
         }}
       />
       <Tab.Screen
@@ -36,7 +42,12 @@ const AppNav = () => {
             <Text style={{ color, fontSize: size }}>P</Text>
           ),
           tabBarLabel: ({ color }) => (
-            <Text style={{ color, fontSize: 14 }}>{t('Profile')}</Text>
+            <Text
+              type={'ct'}
+              style={{ color, marginBottom: moderateVerticalScale(2) }}
+            >
+              {t('Profile')}
+            </Text>
           ),
         }}
       />

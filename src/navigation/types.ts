@@ -1,3 +1,4 @@
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { NavigatorScreenParams, RouteProp } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 
@@ -37,7 +38,7 @@ export type AuthStackProps<T extends keyof AuthStackParams> = {
 
 // App Tab Screen Props
 export type TabProps<T extends keyof BottomTabParams> = {
-  navigation: StackNavigationProp<BottomTabParams, T>
+  navigation: BottomTabNavigationProp<BottomTabParams, T>
   route: RouteProp<BottomTabParams, T>
 }
 
