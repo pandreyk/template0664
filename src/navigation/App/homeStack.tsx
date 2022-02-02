@@ -20,6 +20,7 @@ const HomeStack = () => {
         options={{
           title: t('HomeScreen'),
           headerTitleAlign: 'center',
+          // headerShown: false,
         }}
       />
       <Stack.Screen

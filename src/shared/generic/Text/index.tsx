@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import {
   Text as RNText,
-  TextProps as RNTextProps,
-  FlexStyle,
   TouchableOpacity,
+  TextProps as RNTextProps,
+  StyleProp,
+  TextStyle,
 } from 'react-native'
 import { Color, colors } from '../themes'
 import { styles } from './styles'
@@ -15,7 +16,7 @@ interface TextProps extends RNTextProps {
   color?: Color
   backgroundColor?: Color
   maxLength?: number
-  style?: FlexStyle
+  style?: StyleProp<TextStyle>
 }
 
 export const Text: React.FC<TextProps> = ({

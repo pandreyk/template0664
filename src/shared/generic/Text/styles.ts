@@ -2,11 +2,11 @@ import { ScaledSheet } from 'react-native-size-matters'
 
 export const styles = ScaledSheet.create({
   h1: {
-    fontSize: '32@ms',
+    fontSize: '26@ms',
     paddingVertical: '8@ms',
   },
   h2: {
-    fontSize: '26@ms',
+    fontSize: '24@ms',
     paddingVertical: '8@ms',
   },
   h3: {

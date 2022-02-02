@@ -11,28 +11,31 @@ import {
 import { colors } from '../themes'
 import { styles } from './styles'
 
-interface TextInputProps extends RNTextInputProps {
+export interface TextInputProps extends RNTextInputProps {
   label?: string
-  name?: string
   style?: StyleProp<ViewStyle>
   inputStyle?: StyleProp<TextStyle>
+  error?: string
+  isTouched?: boolean
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
   label,
-  name,
   style,
   inputStyle,
+  error,
+  isTouched,
   ...props
 }) => {
   return (
     <View style={style}>
-      <Text style={styles.label}>{label || name}</Text>
+      {label && <Text style={styles.label}>{label}</Text>}
       <RNTextInput
         placeholderTextColor={colors.grey}
         style={[styles.input, inputStyle]}
         {...props}
       />
+      {error && isTouched && <Text>{error}</Text>}
     </View>
   )
 }
