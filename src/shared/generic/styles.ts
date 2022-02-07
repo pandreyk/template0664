@@ -17,6 +17,14 @@ export const margins = ScaledSheet.create({
   b10: { marginBottom: '10@mvs' },
   r10: { marginRight: '10@ms' },
 
+  a15: { margin: '15@ms' },
+  h15: { marginHorizontal: '15@ms' },
+  v15: { marginVertical: '15@mvs' },
+  t15: { marginTop: '15@mvs' },
+  l15: { marginLeft: '15@ms' },
+  b15: { marginBottom: '15@mvs' },
+  r15: { marginRight: '15@ms' },
+
   a20: { margin: '20@ms' },
   h20: { marginHorizontal: '20@ms' },
   v20: { marginVertical: '20@mvs' },
@@ -42,6 +50,14 @@ export const paddings = ScaledSheet.create({
   l10: { paddingLeft: '10@ms' },
   b10: { paddingBottom: '10@mvs' },
   r10: { paddingRight: '10@ms' },
+
+  a15: { padding: '15@ms' },
+  h15: { paddingHorizontal: '15@ms' },
+  v15: { paddingVertical: '15@mvs' },
+  t15: { paddingTop: '15@mvs' },
+  l15: { paddingLeft: '15@ms' },
+  b15: { paddingBottom: '15@mvs' },
+  r15: { paddingRight: '15@ms' },
 
   a20: { padding: '20@ms' },
   h20: { paddingHorizontal: '20@ms' },
