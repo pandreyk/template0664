@@ -8,6 +8,8 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native'
+import { useTheme } from '@react-navigation/native'
+import { Theme } from 'generic/types'
 import { colors } from '../themes'
 import { styles } from './styles'
 
@@ -27,12 +29,21 @@ export const TextInput: React.FC<TextInputProps> = ({
   isTouched,
   ...props
 }) => {
+  const { colors }: Theme = useTheme()
+
   return (
     <View style={style}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Text style={[styles.label, { color: colors.text }]}>{label}</Text>
+      )}
       <RNTextInput
         placeholderTextColor={colors.grey}
-        style={[styles.input, inputStyle]}
+        style={[
+          styles.input,
+          { color: colors.text },
+          { borderColor: colors.border },
+          inputStyle,
+        ]}
         {...props}
       />
       {error && isTouched && <Text>{error}</Text>}

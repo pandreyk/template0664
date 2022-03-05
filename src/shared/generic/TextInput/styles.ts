@@ -10,7 +10,7 @@ export const styles = ScaledSheet.create({
     fontSize: '16@ms',
     borderRadius: '6@ms',
     borderWidth: '1@ms',
-    borderColor: colors.secondary,
+    borderColor: colors.third,
     alignSelf: 'stretch',
     paddingVertical: '6@mvs',
   },

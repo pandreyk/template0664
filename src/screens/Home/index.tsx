@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, View } from 'react-native'
 import { HomeProps } from 'navigation/types'
 import { Button } from 'generic/Button'
-import { margins, paddings } from 'generic/styles'
+import { margins } from 'generic/styles'
 
 interface ItemProps {
   onPress: () => void

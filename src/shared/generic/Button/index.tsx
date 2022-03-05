@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleProp, Text, ViewStyle } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Color, colors } from 'generic/themes'
@@ -24,9 +24,15 @@ export const Button: React.FC<ButtonProps> = ({
   numberOfLines,
   style,
 }) => {
+  const [pressed, setPressed] = useState<boolean>(false)
+  const onPressIn = () => setPressed(true)
+  const onPressOut = () => setPressed(false)
+
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      onPressIn={onPressIn}
+      onPressOut={onPressOut}
+      activeOpacity={1}
       disabled={disabled}
       onPress={onPress}
       style={[
@@ -40,6 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
         numberOfLines={numberOfLines}
         style={[
           styles.text,
+          pressed && { opacity: 0.7 },
           color && { color: colors[color] },
           disabled && { opacity: 0.7 },
         ]}

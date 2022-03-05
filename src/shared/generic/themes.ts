@@ -1,8 +1,8 @@
 export const colors = {
-  secondary: '#0c3bd3',
-  secondaryLight: '#8495da',
   primary: '#97BE0D',
   primaryLight: '#EEF5E3',
+  secondary: '#0c3bd3',
+  secondaryLight: '#8495da',
   third: '#be9d17',
   thirdLight: '#d2c27f',
   white: '#FFFFFF',
